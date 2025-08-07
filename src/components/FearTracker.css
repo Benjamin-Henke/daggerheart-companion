@@ -1,0 +1,174 @@
+.fear-tracker {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  max-width: 28rem;
+  width: 100%;
+}
+
+.fear-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #c084fc;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+  margin-top: 0;
+}
+
+.fear-display {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.skulls {
+  font-size: 2.25rem;
+  min-height: 180px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem;
+  margin-top: 1.5rem; /* Add space for the warning text */
+}
+
+.skull {
+  transition: opacity 0.3s ease;
+}
+
+.skull.active {
+  opacity: 1;
+}
+
+.skull.inactive {
+  opacity: 0.3;
+}
+
+.skull img {
+  width: 64px;
+  height: 64px;
+  display: block;
+}
+
+.max-fear-warning {
+  color: #ef4444;
+  font-weight: bold;
+  font-size: 0.875rem;
+  animation: pulse 2s infinite;
+  position: absolute; /* Position it absolutely */
+  top: -1.5rem; /* Position it above the skulls */
+  left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.fear-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.control-btn {
+  background-color: #31408A;
+  color: white;
+  padding: 0.55rem;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover:not(:disabled) {
+  background-color: #31578A;
+  transform: scale(1.05);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reset-container {
+  display: flex;
+  justify-content: center;
+}
+
+.reset-btn {
+  background-color: #4b5563;
+  color: white;
+  padding: 0.375rem 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background-color: #374151;
+  transform: scale(1.05);
+}
+
+.reset-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.instructions {
+  margin-top: 2rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.fear-tracker-loading {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 4rem 2rem;
+  max-width: 28rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  font-size: 2rem;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
