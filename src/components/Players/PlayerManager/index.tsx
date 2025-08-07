@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../../../SupabaseClient';
 import './PlayerManager.css'
 
-import type { Player } from '../../../types/Player';
+import type { Player } from '../../../types/Player'
 
 import Hp from '../Stats/HP'
+import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
+
 
 const Players = () => {
   const [players, setPlayers] = useState<Player[]>([])
@@ -159,17 +161,10 @@ const Players = () => {
 
             <div className="player-header">
               <div className="player-info">
-                <div className="level-box">
-                  <input
-                    type="number"
-                    min="1"
-                    max="10"
-                    value={player.level}
-                    onChange={(e) => updatePlayerField(player.id, 'level', parseInt(e.target.value))}
-                    className="level-input"
-                  />
-                  <div className="level-label">Level</div>
-                </div>
+                <Level
+                  player={player}
+                  updatePlayerField={updatePlayerField}
+                />
 
                 <div className="character-box">
                   <input
