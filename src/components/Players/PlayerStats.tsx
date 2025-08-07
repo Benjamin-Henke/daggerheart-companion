@@ -54,12 +54,6 @@ const Players = () => {
     } finally {
       setLoading(false);
     }
-  }
-
-  const handlePlayerUpdate = (updatedPlayer: Player) => {
-    setPlayers(players.map(p =>
-      p.id === updatedPlayer.id ? updatedPlayer : p
-    ));
   };
 
   const addPlayer = async () => {
@@ -148,6 +142,12 @@ const Players = () => {
   if (loading) return <div>Loading players...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  const handlePlayerUpdate = (updatedPlayer: Player) => {
+    setPlayers(players.map(p =>
+      p.id === updatedPlayer.id ? updatedPlayer : p
+    ))
+  };
+
   return (
     <div className="player-stats">
       <div className="header">
@@ -219,7 +219,7 @@ const Players = () => {
               </div>
             </div>
 
-            {/* <Hp
+            <Hp
               player={player}
               onPlayerUpdate={handlePlayerUpdate}
               onError={setError}
@@ -229,7 +229,7 @@ const Players = () => {
               player={player}
               onPlayerUpdate={handlePlayerUpdate}
               onError={setError}
-            /> */}
+            />
           </div>
         ))}
 
@@ -241,7 +241,6 @@ const Players = () => {
       </div>
     </div>
   );
-}
 };
 
 export default Players;
