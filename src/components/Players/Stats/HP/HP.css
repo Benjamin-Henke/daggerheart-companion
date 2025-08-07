@@ -1,0 +1,50 @@
+.hp-section {
+  margin-top: 1rem;
+}
+
+.hp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.hp-label {
+  font-weight: bold;
+  color: #c084fc;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.hp-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hp-slot {
+  width: 32px;
+  height: 20px;
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hp-slot.filled {
+  background-color: #dc3545;
+  border-color: #c82333;
+  opacity: 1;
+}
+
+.hp-slot.empty {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(168, 85, 247, 0.5);
+  opacity: 0.6;
+}
+
+.hp-slot:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
