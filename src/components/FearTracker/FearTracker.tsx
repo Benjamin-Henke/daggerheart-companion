@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../../SupabaseClient.ts';
 import './FearTracker.css';
 import wwSkull from '../../assets/ww_skull.png'
@@ -8,7 +8,6 @@ function FearTracker() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  // Load fear value on component mount
   useEffect(() => {
     loadFear();
   }, []);
@@ -33,7 +32,7 @@ function FearTracker() {
     }
   };
 
-  const saveFear = async (newFear) => {
+  const saveFear = async (newFear: number) => {
     setSaving(true);
     try {
       const { error } = await supabase

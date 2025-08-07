@@ -1,5 +1,4 @@
-import React from 'react';
-import FearTracker from './components/FearTracker';
+import FearTracker from './components/FearTracker/FearTracker';
 // import Players from './components/Players/PlayerStats'
 import './App.css'
 
