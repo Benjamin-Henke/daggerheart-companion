@@ -94,7 +94,7 @@ const Players = () => {
   };
 
   // Updated to sync with database
-  const updatePlayerField = (id: number, field: keyof Player, value: any) => {
+  const updatePlayerField = (id: number, field: keyof Player, value: string | number) => {
     setPlayers(prevPlayers =>
       prevPlayers.map(player =>
         player.id === id ? { ...player, [field]: value } : player
@@ -104,7 +104,7 @@ const Players = () => {
     debouncedSave(id, field, value);
   };
 
-  const debouncedSave = (id: number, field: keyof Player, value: any) => {
+  const debouncedSave = (id: number, field: keyof Player, value: string | number) => {
     if (saveTimeout.current) {
       clearTimeout(saveTimeout.current)
     }
@@ -117,8 +117,12 @@ const Players = () => {
           .eq('id', id)
 
         if (error) throw error
-      } catch (err: any) {
-        console.error('Error saving to Supabase:', err.message)
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error('Error saving to Supabase:', error.message);
+        } else {
+          console.error('Error saving to Supabase:', String(error));
+        }
       }
     }, 500)
   };

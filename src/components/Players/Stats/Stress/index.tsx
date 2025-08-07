@@ -1,96 +1,116 @@
-import { supabase } from "../../../supabaseClient";
+import { supabase } from '../../../../SupabaseClient'
 import './Stress.css'
 
-const Stress = ({ player, onPlayerUpdate, onError }) => {
-  // const addStressSlot = async (playerId) => {
-  //   try {
-  //     const newMaxStress = player.max_stress + 1;
-  //     const { data, error } = await supabase
-  //       .from('players')
-  //       .update({ max_stress: newMaxStress })
-  //       .eq('id', playerId)
-  //       .select();
-  //     if (error) throw error;
-  //     onPlayerUpdate(data[0]);
-  //   } catch (error) {
-  //     console.error('Error adding Stress slot: ', error);
-  //     onError(error.message);
-  //   }
-  // };
+import type { Player } from '../../PlayerStats'
 
-  // const removeStressSlot = async (playerId) => {
-  //   try {
-  //     const newMaxStress = player.max_stress - 1;
-  //     const { data, error } = await supabase
-  //       .from('players')
-  //       .update({ max_stress: newMaxStress })
-  //       .eq('id', playerId)
-  //       .select();
-  //     if (error) throw error;
-  //     onPlayerUpdate(data[0]);
-  //   } catch (error) {
-  //     console.error('Error removing Stress slot: ', error);
-  //     onError(error.message);
-  //   }
-  // };
+type StressProps = {
+  player: Player;
+  onPlayerUpdate: (player: Player) => void;
+  onError: (message: string) => void;
+};
 
-  // const toggleStressSlot = async (playerId, slotIndex) => {
-  //   try {
-  //     const newCurrentStress = slotIndex + 1 <= player.current_stress ? slotIndex : slotIndex + 1;
-  //     const { data, error } = await supabase
-  //       .from('players')
-  //       .update({ current_stress: newCurrentStress })
-  //       .eq('id', playerId)
-  //       .select();
-  //     if (error) throw error;
-  //     onPlayerUpdate(data[0]);
-  //   } catch (error) {
-  //     console.error('Error toggling Stress slot: ', error);
-  //     onError(error.message);
-  //   }
-  // };
+const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
+  const addStressSlot = async (playerId: number) => {
+    try {
+      const newMaxStress = player.max_stress + 1;
+      const { data, error } = await supabase
+        .from('players')
+        .update({ max_stress: newMaxStress })
+        .eq('id', playerId)
+        .select();
+      if (error) throw error;
+      onPlayerUpdate(data[0]);
+    } catch (error) {
+      console.error('Error adding Stress slot: ', error);
+      if (error instanceof Error) {
+        onError(error.message);
+      } else {
+        onError(String(error));
+      }
+    }
+  };
 
-  // const renderStressSlots = (player) => {
-  //   const slots = [];
-  //   for (let i = 0; i < player.max_stress; i++) {
-  //     slots.push(
-  //       <div
-  //         key={i}
-  //         className={`stress-slot ${i < player.current_stress ? 'filled' : 'empty'}`}
-  //         onClick={() => toggleStressSlot(player.id, i)}
-  //       />
-  //     );
-  //   }
-  //   return slots;
-  // };
+  const removeStressSlot = async (playerId: number) => {
+    try {
+      const newMaxStress = player.max_stress - 1;
+      const { data, error } = await supabase
+        .from('players')
+        .update({ max_stress: newMaxStress })
+        .eq('id', playerId)
+        .select();
+      if (error) throw error;
+      onPlayerUpdate(data[0]);
+    } catch (error) {
+      console.error('Error removing Stress slot: ', error);
+      if (error instanceof Error) {
+        onError(error.message);
+      } else {
+        onError(String(error));
+      }
+    }
+  };
 
-  // return (
-  //   <div className="stress-section">
-  //     <div className="stress-header">
-  //       <span className="stress-label">Stress ({player.current_stress}/{player.max_stress})</span>
+  const toggleStressSlot = async (playerId: number, slotIndex: number) => {
+    try {
+      const newCurrentStress = slotIndex + 1 <= player.current_stress ? slotIndex : slotIndex + 1;
+      const { data, error } = await supabase
+        .from('players')
+        .update({ current_stress: newCurrentStress })
+        .eq('id', playerId)
+        .select();
+      if (error) throw error;
+      onPlayerUpdate(data[0]);
+    } catch (error) {
+      console.error('Error toggling Stress slot: ', error);
+      if (error instanceof Error) {
+        onError(error.message);
+      } else {
+        onError(String(error));
+      }
+    }
+  };
 
-  //       <div className="slot-buttons">
-  //         <button
-  //           onClick={() => addStressSlot(player.id)}
-  //           className="slot-btn"
-  //           title="Add Stress slot"
-  //         >
-  //           +
-  //         </button>
-  //         <button
-  //           onClick={() => removeStressSlot(player.id)}
-  //           className="slot-btn"
-  //           title="Remove Stress slot"
-  //         >
-  //           -
-  //         </button>
-  //       </div>
-  //     </div>
-  //     <div className="stress-slots">
-  //       {renderStressSlots(player)}
-  //     </div>
-  //   </div>
-  // );
+  const renderStressSlots = (player: Player) => {
+    const slots = [];
+    for (let i = 0; i < player.max_stress; i++) {
+      slots.push(
+        <div
+          key={i}
+          className={`stress-slot ${i < player.current_stress ? 'filled' : 'empty'}`}
+          onClick={() => toggleStressSlot(player.id, i)}
+        />
+      );
+    }
+    return slots;
+  };
+
+  return (
+    <div className="stress-section">
+      <div className="stress-header">
+        <span className="stress-label">Stress ({player.current_stress}/{player.max_stress})</span>
+
+        <div className="slot-buttons">
+          <button
+            onClick={() => addStressSlot(player.id)}
+            className="slot-btn"
+            title="Add Stress slot"
+          >
+            +
+          </button>
+          <button
+            onClick={() => removeStressSlot(player.id)}
+            className="slot-btn"
+            title="Remove Stress slot"
+          >
+            -
+          </button>
+        </div>
+      </div>
+      <div className="stress-slots">
+        {renderStressSlots(player)}
+      </div>
+    </div>
+  );
 }
 
 export default Stress
