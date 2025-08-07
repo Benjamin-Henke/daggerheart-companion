@@ -86,18 +86,6 @@ function FearTracker() {
     return skulls;
   };
 
-  // const renderSkulls = () => {
-  //   const skulls = [];
-  //   for (let i = 0; i < 12; i++) {
-  //     skulls.push(
-  //       <span key={i} className={`skull ${i < fear ? 'active' : 'inactive'}`}>
-  //         💀
-  //       </span>
-  //     );
-  //   }
-  //   return skulls;
-  // };
-
   if (loading) {
     return (
       <div className="fear-tracker-loading">
