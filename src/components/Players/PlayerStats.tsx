@@ -1,14 +1,33 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../../SupabaseClient';
 import './PlayerStats.css'
 
 import Hp from './Stats/HP'
 import Stress from './Stats/Stress'
 
+export type Player = {
+  id: number;
+  name: string;
+  class: string;
+  heritage: string;
+  subclass: string;
+  level: number;
+  agility: number;
+  current_hp: number;
+  max_hp: number;
+  current_armor: number;
+  max_armor: number;
+  current_stress: number;
+  max_stress: number;
+  current_hope: number;
+  max_hope: number;
+}
+
 const Players = () => {
-  const [players, setPlayers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [players, setPlayers] = useState<Player[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const saveTimeout = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     loadPlayers();
@@ -26,14 +45,18 @@ const Players = () => {
 
       setPlayers(data || []);
     } catch (error) {
-      console.error('Error loading players: ', error);
-      setError(error.message)
+      console.error('Error loading players:', error);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError(String(error));
+      }
     } finally {
       setLoading(false);
     }
   }
 
-  const handlePlayerUpdate = (updatedPlayer) => {
+  const handlePlayerUpdate = (updatedPlayer: Player) => {
     setPlayers(players.map(p =>
       p.id === updatedPlayer.id ? updatedPlayer : p
     ));
@@ -68,12 +91,16 @@ const Players = () => {
       setPlayers([...players, data[0]]);
     } catch (error) {
       console.error('Error adding player: ', error);
-      setError(error.message)
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError(String(error))
+      }
     }
   };
 
   // Updated to sync with database
-  const updatePlayerField = (id, field, value) => {
+  const updatePlayerField = (id: number, field: keyof Player, value: any) => {
     setPlayers(prevPlayers =>
       prevPlayers.map(player =>
         player.id === id ? { ...player, [field]: value } : player
@@ -83,26 +110,26 @@ const Players = () => {
     debouncedSave(id, field, value);
   };
 
-  let saveTimeout;
+  const debouncedSave = (id: number, field: keyof Player, value: any) => {
+    if (saveTimeout.current) {
+      clearTimeout(saveTimeout.current)
+    }
 
-  const debouncedSave = (id, field, value) => {
-    clearTimeout(saveTimeout);
-
-    saveTimeout = setTimeout(async () => {
+    saveTimeout.current = setTimeout(async () => {
       try {
         const { error } = await supabase
           .from('players')
           .update({ [field]: value })
-          .eq('id', id);
+          .eq('id', id)
 
-        if (error) throw error;
-      } catch (err) {
-        console.error('Error saving to Supabase:', err.message);
+        if (error) throw error
+      } catch (err: any) {
+        console.error('Error saving to Supabase:', err.message)
       }
-    }, 500);
+    }, 500)
   };
 
-  const deletePlayer = async (id) => {
+  const deletePlayer = async (id: number) => {
     try {
       const { error } = await supabase.from('players').delete().eq('id', id);
       if (error) throw error;
@@ -110,7 +137,11 @@ const Players = () => {
       setPlayers(players.filter(p => p.id !== id));
     } catch (error) {
       console.error('Error deleting player:', error);
-      setError(error.message);
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError(String(error))
+      }
     }
   };
 
@@ -188,7 +219,7 @@ const Players = () => {
               </div>
             </div>
 
-            <Hp
+            {/* <Hp
               player={player}
               onPlayerUpdate={handlePlayerUpdate}
               onError={setError}
@@ -198,7 +229,7 @@ const Players = () => {
               player={player}
               onPlayerUpdate={handlePlayerUpdate}
               onError={setError}
-            />
+            /> */}
           </div>
         ))}
 
