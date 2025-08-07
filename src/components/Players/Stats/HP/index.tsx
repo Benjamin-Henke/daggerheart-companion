@@ -1,7 +1,7 @@
 import { supabase } from '../../../../SupabaseClient'
 import './HP.css'
 
-import type { Player } from '../../PlayerStats'
+import type { Player } from '../../../../types/Player'
 
 type HpProps = {
   player: Player;

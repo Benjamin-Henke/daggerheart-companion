@@ -1,7 +1,7 @@
 import { supabase } from '../../../../SupabaseClient'
 import './Stress.css'
 
-import type { Player } from '../../PlayerStats'
+import type { Player } from '../../../../types/Player'
 
 type StressProps = {
   player: Player;

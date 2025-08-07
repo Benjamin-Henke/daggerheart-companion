@@ -1,5 +1,5 @@
 import FearTracker from './components/FearTracker/FearTracker';
-// import Players from './components/Players/PlayerStats'
+import Players from './components/Players/PlayerManager'
 import './App.css'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="app-container">
       <div className="dashboard">
         <FearTracker />
-        {/* <Players /> */}
+        <Players />
       </div>
     </div>
   );
