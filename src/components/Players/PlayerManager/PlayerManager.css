@@ -110,7 +110,7 @@
 .class-input {
   font-size: 1.25rem;
   font-weight: bold;
-  width: 100%;
+  width: 60%;
   padding: 0rem;
   border: none;
   background: rgba(0, 0, 0, 0.3);
@@ -118,14 +118,12 @@
   text-align: center;
   transition: all 0.2s ease;
 }
-
 .player-input:focus,
 .class-input:focus {
   outline: none;
   border-color: #7c3aed;
   background: rgba(0, 0, 0, 0.5);
 }
-
 .character-box,
 .class-box {
   flex: 1;
@@ -137,14 +135,12 @@
   border-radius: 0.80rem;
   padding: 0.3rem;
 }
-
 .heritage-subclass-row {
   display: flex;
   gap: 0.5rem;
   width: 100%;
   margin-top: 0.5rem;
 }
-
 .heritage-input,
 .subclass-input {
   font-size: 0.875rem;
@@ -154,6 +150,7 @@
   color: #c084fc;
   text-align: center;
   opacity: 0.8;
+  width: 40%; /* This will make heritage/subclass take the remaining 40% */
 }
 
 .player-input::placeholder,
