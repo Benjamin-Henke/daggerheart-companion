@@ -56,6 +56,12 @@
   display: block;
 }
 
+.skull.active img {
+  filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.6))
+          drop-shadow(0 0 16px rgba(220, 38, 38, 0.4))
+          drop-shadow(0 0 24px rgba(220, 38, 38, 0.2));
+}
+
 .max-fear-warning {
   color: #ef4444;
   font-weight: bold;
