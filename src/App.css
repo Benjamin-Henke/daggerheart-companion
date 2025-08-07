@@ -1,0 +1,43 @@
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #111827 0%, #452248 50%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.dashboard {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  align-items: flex-start; /* Keep this as flex-start for PlayerStats */
+}
+
+/* Set the flex proportions */
+.dashboard > *:first-child {
+  flex: 1;
+  min-width: 300px;
+  align-self: center; /* This centers FearTracker vertically */
+}
+
+.dashboard > *:nth-child(2) {
+  flex: 2;
+  min-width: 600px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dashboard > *:first-child,
+  .dashboard > *:nth-child(2) {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    align-self: auto; /* Reset alignment for mobile */
+  }
+}
