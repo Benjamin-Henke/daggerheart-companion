@@ -45,7 +45,7 @@
 
 .players-container-scrollable {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: visible;
   padding: 1rem 2rem 2rem 2rem;
 }
 
@@ -71,7 +71,6 @@
 
 /* For Firefox */
 .players-container-scrollable {
-  padding-top: 5rem;
   scrollbar-width: thin;
   scrollbar-color: #7c3aed rgba(0, 0, 0, 0.3);
 }

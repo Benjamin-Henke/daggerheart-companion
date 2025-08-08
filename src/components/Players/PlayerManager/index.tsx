@@ -3,7 +3,7 @@ import { supabase } from '../../../supabaseClient';
 import './PlayerManager.css'
 import './Damage.css'
 
-import type { Player, DamageLevel } from '../../../types/Player'
+import type { Player } from '../../../types/Player'
 
 import Hp from '../Stats/HP'
 import Level from '../Stats/Level'
@@ -135,8 +135,10 @@ const Players = () => {
     ))
   };
 
-  const getDamageLevel = (current_hp: number): number => {
-    return Math.min(current_hp, 5)
+  const getDamageLevel = (current_hp: number, max_hp: number): number => {
+    if (max_hp <= 0) return 0;
+    const healthPercent = (current_hp / max_hp) * 100; // % health left
+    return Math.min(Math.floor(healthPercent / 10), 10); // 0–10 range
   };
 
   if (error) return <div>Error: {error}</div>;
@@ -167,7 +169,7 @@ const Players = () => {
 
             <div
               key={player.id}
-              className={`player-card damage-level-${getDamageLevel( player.current_hp )}`}
+              className={`player-card damage-level-${getDamageLevel( player.current_hp, player.max_hp )}`}
             >
               <button
                 className="delete-btn"
