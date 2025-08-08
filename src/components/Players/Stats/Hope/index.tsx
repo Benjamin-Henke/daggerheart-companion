@@ -32,7 +32,6 @@ const Hope = ({ player, onPlayerUpdate, onError }: HopeProps) => {
   return (
     <div className="hope-banner">
       <span className="hope-label">Hope</span>
-      <div className="hope-diamonds">
         {[...Array(6)].map((_, index) => (
           <div
             key={index}
@@ -40,7 +39,6 @@ const Hope = ({ player, onPlayerUpdate, onError }: HopeProps) => {
             onClick={() => handleDiamondClick(index)}
           />
         ))}
-      </div>
     </div>
   );
 };
