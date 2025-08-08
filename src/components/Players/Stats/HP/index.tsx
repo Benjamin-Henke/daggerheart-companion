@@ -67,7 +67,6 @@ const HP = ({ player, onPlayerUpdate, onError }: HpProps) => {
       if (error) throw error;
 
       onPlayerUpdate(data[0])
-
     } catch (error) {
       const rollbackPlayer = { ...player, current_hp: originalHp };
       onPlayerUpdate(rollbackPlayer)

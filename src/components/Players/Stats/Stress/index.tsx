@@ -51,16 +51,26 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
   };
 
   const toggleStressSlot = async (playerId: number, slotIndex: number) => {
+    const newCurrentStress = slotIndex + 1 <= player.current_stress ? slotIndex : slotIndex + 1;
+    const originalStress = player.current_stress;
+
+    const optimisticPlayer = { ...player, current_stress: newCurrentStress };
+    onPlayerUpdate(optimisticPlayer);
+
     try {
-      const newCurrentStress = slotIndex + 1 <= player.current_stress ? slotIndex : slotIndex + 1;
       const { data, error } = await supabase
         .from('players')
         .update({ current_stress: newCurrentStress })
         .eq('id', playerId)
         .select();
+
       if (error) throw error;
+
       onPlayerUpdate(data[0]);
     } catch (error) {
+      const rollbackPlayer = { ...player, current_stess: originalStress };
+      onPlayerUpdate(rollbackPlayer)
+
       console.error('Error toggling Stress slot: ', error);
       if (error instanceof Error) {
         onError(error.message);
