@@ -51,16 +51,27 @@ const HP = ({ player, onPlayerUpdate, onError }: HpProps) => {
   };
 
   const toggleHpSlot = async (playerId: number, slotIndex: number) => {
+    const newCurrentHp = slotIndex + 1 <= player.current_hp ? slotIndex : slotIndex + 1;
+    const originalHp = player.current_hp;
+
+    const optimisticPlayer = { ...player, current_hp: newCurrentHp };
+    onPlayerUpdate(optimisticPlayer);
+
     try {
-      const newCurrentHp = slotIndex + 1 <= player.current_hp ? slotIndex : slotIndex + 1;
       const { data, error } = await supabase
         .from('players')
         .update({ current_hp: newCurrentHp })
         .eq('id', playerId)
         .select();
+
       if (error) throw error;
-      onPlayerUpdate(data[0]);
+
+      onPlayerUpdate(data[0])
+
     } catch (error) {
+      const rollbackPlayer = { ...player, current_hp: originalHp };
+      onPlayerUpdate(rollbackPlayer)
+
       console.error('Error toggling HP slot: ', error);
       if (error instanceof Error) {
         onError(error.message);
