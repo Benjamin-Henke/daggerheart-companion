@@ -39,7 +39,7 @@
 .players-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .player-card {
@@ -49,7 +49,7 @@
   border: 1px solid rgba(168, 85, 247, 0.3);
   border-radius: 0.75rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  padding: 1.5rem;
+  padding: 1rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 

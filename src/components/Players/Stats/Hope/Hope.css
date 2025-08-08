@@ -1,0 +1,48 @@
+.hope-banner {
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border: 2px solid rgba(168, 85, 247, 0.8);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+
+.hope-diamonds {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.hope-diamond {
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  border: 2px solid #c084fc;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hope-diamond.filled {
+  background: #c084fc;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.6);
+}
+
+.hope-diamond:hover {
+  transform: rotate(45deg) scale(1.1);
+  border-color: #ffffff;
+}
+
+.hope-label {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

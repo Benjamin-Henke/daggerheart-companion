@@ -7,7 +7,7 @@ import type { Player } from '../../../types/Player'
 import Hp from '../Stats/HP'
 import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
-
+import Hope from '../Stats/Hope'
 
 const Players = () => {
   const [players, setPlayers] = useState<Player[]>([])
@@ -58,7 +58,7 @@ const Players = () => {
         current_stress: 0,
         max_stress: 6,
         current_hope: 0,
-        max_hope: 5
+        max_hope: 6
       };
 
       const { data, error } = await supabase
@@ -209,6 +209,12 @@ const Players = () => {
             />
 
             <Stress
+              player={player}
+              onPlayerUpdate={handlePlayerUpdate}
+              onError={setError}
+            />
+
+            <Hope
               player={player}
               onPlayerUpdate={handlePlayerUpdate}
               onError={setError}
