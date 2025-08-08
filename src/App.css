@@ -15,11 +15,10 @@
   align-items: flex-start; /* Keep this as flex-start for PlayerStats */
 }
 
-/* Set the flex proportions */
 .dashboard > *:first-child {
   flex: 1;
   min-width: 300px;
-  align-self: center; /* This centers FearTracker vertically */
+  /* Remove align-self: center */
 }
 
 .dashboard > *:nth-child(2) {
@@ -39,5 +38,31 @@
     width: 100%;
     max-width: 600px;
     align-self: auto; /* Reset alignment for mobile */
+  }
+}
+
+@media (max-width: 2000px) {
+  /* Align both headers at the same height */
+  .header,
+  .fear-header {
+    padding: 1rem 1rem 0 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .player-stats,
+  .fear-tracker {
+    padding: 0;
+  }
+
+  .fear-content {
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  .players-container-scrollable {
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .players-container {
+    grid-template-columns: 1fr;
   }
 }
