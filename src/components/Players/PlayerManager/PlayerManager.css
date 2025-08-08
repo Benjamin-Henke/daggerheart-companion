@@ -198,7 +198,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 1300px) {
+@media (max-width: 1850px) {
   .header {
     flex-direction: column;
     gap: 1rem;
@@ -209,20 +209,7 @@
     padding: 1rem;
   }
 
-  .player-header {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .level-box {
-    align-self: flex-end;
-  }
-
-  .player-input,
-  .class-input,
-  .heritage-input,
-  .subclass-input {
-    width: 100%;
-    flex: 1 1 auto;
+  .players-container {
+    grid-template-columns: 1fr;
   }
 }
