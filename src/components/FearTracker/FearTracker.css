@@ -29,8 +29,8 @@
   font-size: 2.25rem;
   min-height: 180px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   gap: 0.5rem;
   align-items: center;
   justify-items: center;

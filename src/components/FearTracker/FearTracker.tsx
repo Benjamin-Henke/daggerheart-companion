@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '../../SupabaseClient.ts';
+import { supabase } from '../../supabaseClient'
 import './FearTracker.css';
 import wwSkull from '../../assets/ww_skull.png'
 

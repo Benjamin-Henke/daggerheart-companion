@@ -107,52 +107,38 @@
   align-items: stretch;
 }
 
-.player-input,
-.class-input {
-  font-size: 1.25rem;
-  font-weight: bold;
-  width: 60%;
-  padding: 0rem;
-  border: none;
-  background: rgba(0, 0, 0, 0.3);
-  color: #c084fc;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-.player-input:focus,
-.class-input:focus {
-  outline: none;
-  border-color: #7c3aed;
-  background: rgba(0, 0, 0, 0.5);
-}
 .character-box,
 .class-box {
   flex: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(168, 85, 247, 0.5);
   border-radius: 0.80rem;
   padding: 0.3rem;
 }
-.heritage-subclass-row {
-  display: flex;
-  gap: 0.5rem;
-  width: 100%;
-  margin-top: 0.5rem;
-}
+
+.player-input,
+.class-input,
 .heritage-input,
 .subclass-input {
-  font-size: 0.875rem;
-  padding: 0rem;
+  font-size: 1.25rem; /* You might want to make heritage/subclass smaller */
+  font-weight: bold;
+  padding: 0.2rem; /* Add a bit of padding for better touch targets */
   border: none;
   background: rgba(0, 0, 0, 0.3);
   color: #c084fc;
   text-align: center;
-  opacity: 0.8;
-  width: 40%; /* This will make heritage/subclass take the remaining 40% */
+  transition: all 0.2s ease;
 }
+
+.heritage-input,
+.subclass-input {
+  font-size: 0.875rem; /* Keep these smaller */
+  opacity: 0.8;
+}
+
 
 .player-input::placeholder,
 .class-input::placeholder,
