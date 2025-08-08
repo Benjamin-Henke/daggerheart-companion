@@ -15,3 +15,5 @@ export type Player = {
   current_hope: number;
   max_hope: number;
 }
+
+export type DamageLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10

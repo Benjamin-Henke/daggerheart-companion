@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '../../../supabaseClient';
 import './PlayerManager.css'
+import './Damage.css'
 
-import type { Player } from '../../../types/Player'
+import type { Player, DamageLevel } from '../../../types/Player'
 
 import Hp from '../Stats/HP'
 import Level from '../Stats/Level'
@@ -79,7 +80,6 @@ const Players = () => {
     }
   };
 
-  // Updated to sync with database
   const updatePlayerField = (id: number, field: keyof Player, value: string | number) => {
     setPlayers(prevPlayers =>
       prevPlayers.map(player =>
@@ -129,12 +129,14 @@ const Players = () => {
     }
   };
 
-
-
   const handlePlayerUpdate = (updatedPlayer: Player) => {
     setPlayers(players.map(p =>
       p.id === updatedPlayer.id ? updatedPlayer : p
     ))
+  };
+
+  const getDamageLevel = (current_hp: number): number => {
+    return Math.min(current_hp, 5)
   };
 
   if (error) return <div>Error: {error}</div>;
@@ -163,7 +165,10 @@ const Players = () => {
         <div className="players-container">
           {players.map(player => (
 
-            <div key={player.id} className="player-card">
+            <div
+              key={player.id}
+              className={`player-card damage-level-${getDamageLevel( player.current_hp )}`}
+            >
               <button
                 className="delete-btn"
                 title="Delete Player"

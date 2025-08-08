@@ -1,0 +1,80 @@
+/* No damage - pristine */
+.player-card.damage-level-0 {
+  /* Uses default player-card styling */
+}
+
+/* Minimal damage - 1 HP */
+.player-card.damage-level-1 {
+  background: linear-gradient(rgba(139, 69, 19, 0.02), transparent),
+              rgba(0, 0, 0, 0.5);
+}
+
+/* Light damage - 2 HP */
+.player-card.damage-level-2 {
+  background: linear-gradient(rgba(139, 69, 19, 0.05), transparent),
+              rgba(0, 0, 0, 0.5);
+  border-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Light-medium damage - 3 HP */
+.player-card.damage-level-3 {
+  background: linear-gradient(rgba(139, 69, 19, 0.08), transparent),
+              rgba(0, 0, 0, 0.5);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Medium damage - 4 HP */
+.player-card.damage-level-4 {
+  background: linear-gradient(rgba(139, 69, 19, 0.12), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(220, 38, 38, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.05);
+}
+
+/* Medium-heavy damage - 5 HP */
+.player-card.damage-level-5 {
+  background: linear-gradient(rgba(139, 69, 19, 0.15), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(220, 38, 38, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.1);
+}
+
+/* Heavy damage - 6 HP */
+.player-card.damage-level-6 {
+  background: linear-gradient(rgba(139, 69, 19, 0.18), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(220, 38, 38, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.15);
+}
+
+/* Severe damage - 7 HP */
+.player-card.damage-level-7 {
+  background: linear-gradient(rgba(139, 69, 19, 0.22), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(220, 38, 38, 0.6);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.2);
+}
+
+/* Critical damage - 8 HP */
+.player-card.damage-level-8 {
+  background: linear-gradient(rgba(139, 69, 19, 0.25), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(220, 38, 38, 0.7);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.25);
+}
+
+/* Near death - 9 HP */
+.player-card.damage-level-9 {
+  background: linear-gradient(rgba(139, 69, 19, 0.3), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(220, 38, 38, 0.8);
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.3);
+}
+
+/* Maximum damage - 10+ HP */
+.player-card.damage-level-10 {
+  background: linear-gradient(rgba(139, 69, 19, 0.35), transparent),
+              rgba(0, 0, 0, 0.5);
+  border: 3px solid #dc2626;
+  box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.4);
+}
