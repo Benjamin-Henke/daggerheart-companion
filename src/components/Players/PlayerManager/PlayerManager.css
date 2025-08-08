@@ -37,9 +37,9 @@
 }
 
 .players-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 .player-card {
@@ -51,6 +51,7 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   padding: 1rem;
   transition: transform 0.2s, box-shadow 0.2s;
+  padding-bottom: 3rem;
 }
 
 .player-card:hover {

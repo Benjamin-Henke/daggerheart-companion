@@ -6,16 +6,22 @@
   background: linear-gradient(135deg, #4f46e5, #7c3aed);
   border: 2px solid rgba(168, 85, 247, 0.8);
   border-radius: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.1rem 1rem 0.5rem 1rem;
   box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.4);
   z-index: 5;
   backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  gap: 0.25rem;
 }
 
 .hope-diamonds {
   display: flex;
-  gap: 0.25rem;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .hope-diamond {
@@ -42,7 +48,7 @@
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: bold;
-  margin-right: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin: 0;
 }

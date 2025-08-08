@@ -31,8 +31,8 @@ const Hope = ({ player, onPlayerUpdate, onError }: HopeProps) => {
 
   return (
     <div className="hope-banner">
+      <span className="hope-label">Hope</span>
       <div className="hope-diamonds">
-        <span className="hope-label">Hope</span>
         {[...Array(6)].map((_, index) => (
           <div
             key={index}
