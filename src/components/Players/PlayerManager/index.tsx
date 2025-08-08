@@ -129,13 +129,25 @@ const Players = () => {
     }
   };
 
-  if (loading) return <div>Loading players...</div>;
-  if (error) return <div>Error: {error}</div>;
+
 
   const handlePlayerUpdate = (updatedPlayer: Player) => {
     setPlayers(players.map(p =>
       p.id === updatedPlayer.id ? updatedPlayer : p
     ))
+  };
+
+  if (error) return <div>Error: {error}</div>;
+
+  if (loading) {
+    return (
+      <div className="players-loading">
+        <div className="loading-content">
+          <div className="spinner">⟲</div>
+          <span>Loading Players...</span>
+        </div>
+      </div>
+    );
   };
 
   return (
