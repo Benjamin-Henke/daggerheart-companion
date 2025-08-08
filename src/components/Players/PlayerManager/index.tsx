@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { supabase } from '../../../SupabaseClient';
+import { supabase } from '../../../supabaseClient';
 import './PlayerManager.css'
 
 import type { Player } from '../../../types/Player'
@@ -147,86 +147,88 @@ const Players = () => {
         </button>
       </div>
 
-      <div className="players-container">
-        {players.map(player => (
+      <div className="players-container-scrollable">
+        <div className="players-container">
+          {players.map(player => (
 
-          <div key={player.id} className="player-card">
-            <button
-              className="delete-btn"
-              title="Delete Player"
-              onClick={() => deletePlayer(player.id)}
-            >
-              ✕
-            </button>
+            <div key={player.id} className="player-card">
+              <button
+                className="delete-btn"
+                title="Delete Player"
+                onClick={() => deletePlayer(player.id)}
+              >
+                ✕
+              </button>
 
-            <div className="player-header">
-              <div className="player-info">
-                <Level
-                  player={player}
-                  updatePlayerField={updatePlayerField}
-                />
+              <div className="player-header">
+                <div className="player-info">
+                  <Level
+                    player={player}
+                    updatePlayerField={updatePlayerField}
+                  />
 
-                <div className="character-box">
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    value={player.name}
-                    onChange={(e) => updatePlayerField(player.id, 'name', e.target.value)}
-                    className="player-input"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Heritage"
-                    value={player.heritage}
-                    onChange={(e) => updatePlayerField(player.id, 'heritage', e.target.value)}
-                    className="heritage-input"
-                  />
-                </div>
+                  <div className="character-box">
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      value={player.name}
+                      onChange={(e) => updatePlayerField(player.id, 'name', e.target.value)}
+                      className="player-input"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Heritage"
+                      value={player.heritage}
+                      onChange={(e) => updatePlayerField(player.id, 'heritage', e.target.value)}
+                      className="heritage-input"
+                    />
+                  </div>
 
-                <div className="class-box">
-                  <input
-                    type="text"
-                    placeholder="Class"
-                    value={player.class}
-                    onChange={(e) => updatePlayerField(player.id, 'class', e.target.value)}
-                    className="class-input"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Subclass"
-                    value={player.subclass}
-                    onChange={(e) => updatePlayerField(player.id, 'subclass', e.target.value)}
-                    className="subclass-input"
-                  />
+                  <div className="class-box">
+                    <input
+                      type="text"
+                      placeholder="Class"
+                      value={player.class}
+                      onChange={(e) => updatePlayerField(player.id, 'class', e.target.value)}
+                      className="class-input"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Subclass"
+                      value={player.subclass}
+                      onChange={(e) => updatePlayerField(player.id, 'subclass', e.target.value)}
+                      className="subclass-input"
+                    />
+                  </div>
                 </div>
               </div>
+
+              <Hp
+                player={player}
+                onPlayerUpdate={handlePlayerUpdate}
+                onError={setError}
+              />
+
+              <Stress
+                player={player}
+                onPlayerUpdate={handlePlayerUpdate}
+                onError={setError}
+              />
+
+              <Hope
+                player={player}
+                onPlayerUpdate={handlePlayerUpdate}
+                onError={setError}
+              />
             </div>
+          ))}
 
-            <Hp
-              player={player}
-              onPlayerUpdate={handlePlayerUpdate}
-              onError={setError}
-            />
-
-            <Stress
-              player={player}
-              onPlayerUpdate={handlePlayerUpdate}
-              onError={setError}
-            />
-
-            <Hope
-              player={player}
-              onPlayerUpdate={handlePlayerUpdate}
-              onError={setError}
-            />
-          </div>
-        ))}
-
-        {players.length === 0 && (
-          <div className="no-players">
-            <p>No players added yet. Click "Add Player" to get started!</p>
-          </div>
-        )}
+          {players.length === 0 && (
+            <div className="no-players">
+              <p>No players added yet. Click "Add Player" to get started!</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
