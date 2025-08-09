@@ -1,7 +1,9 @@
-import { supabase } from '../../../../SupabaseClient'
+import { supabase } from '../../../../supabaseClient'
 import './HP.css'
 
 import type { Player } from '../../../../types/Player'
+
+import { Plus, Minus } from 'lucide-react';
 
 type HpProps = {
   player: Player;
@@ -104,14 +106,14 @@ const HP = ({ player, onPlayerUpdate, onError }: HpProps) => {
             className="slot-btn"
             title="Add HP slot"
           >
-            +
+            <Plus className="w-4 h-4" />
           </button>
           <button
             onClick={() => removeHpSlot(player.id)}
             className="slot-btn"
             title="Remove HP slot"
           >
-            -
+            <Minus className="w-4 h-4" />
           </button>
         </div>
       </div>

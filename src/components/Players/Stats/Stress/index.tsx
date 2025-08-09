@@ -1,7 +1,9 @@
-import { supabase } from '../../../../SupabaseClient'
+import { supabase } from '../../../../supabaseClient'
 import './Stress.css'
 
 import type { Player } from '../../../../types/Player'
+
+import { Plus, Minus } from "lucide-react";
 
 type StressProps = {
   player: Player;
@@ -105,14 +107,14 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
             className="slot-btn"
             title="Add Stress slot"
           >
-            +
+            <Plus className="w-4 h-4" />
           </button>
           <button
             onClick={() => removeStressSlot(player.id)}
             className="slot-btn"
             title="Remove Stress slot"
           >
-            -
+            <Minus className="w-4 h-4" />
           </button>
         </div>
       </div>

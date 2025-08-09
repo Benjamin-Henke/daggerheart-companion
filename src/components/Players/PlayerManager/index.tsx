@@ -10,6 +10,8 @@ import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
 import Hope from '../Stats/Hope'
 
+import { Flame, X } from "lucide-react";
+
 const Players = () => {
   const [players, setPlayers] = useState<Player[]>([])
   const [loading, setLoading] = useState(true)
@@ -158,6 +160,9 @@ const Players = () => {
     <div className="player-stats">
       <div className="header">
         <h3>PLAYERS</h3>
+        <button>
+          <Flame className="w-4 h-4 text-orange-400" />
+        </button>
         <button onClick={addPlayer} className="add-player-btn">
           Add Player
         </button>
@@ -176,7 +181,7 @@ const Players = () => {
                 title="Delete Player"
                 onClick={() => deletePlayer(player.id)}
               >
-                ✕
+                <X className="w-4 h-4" />
               </button>
 
               <div className="player-header">
