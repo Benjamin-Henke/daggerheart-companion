@@ -137,8 +137,8 @@ const Players = () => {
 
   const getDamageLevel = (current_hp: number, max_hp: number): number => {
     if (max_hp <= 0) return 0;
-    const healthPercent = (current_hp / max_hp) * 100; // % health left
-    return Math.min(Math.floor(healthPercent / 10), 10); // 0–10 range
+    const healthPercent = (current_hp / max_hp) * 100;
+    return Math.min(Math.floor(healthPercent / 10), 10);
   };
 
   if (error) return <div>Error: {error}</div>;
