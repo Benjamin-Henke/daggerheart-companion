@@ -1,31 +1,31 @@
-/* Rest Button Container */
-.rest-button-container {
+.rest-button-wrapper {
   position: relative;
 }
 
-/* Main Rest Button */
-.rest-btn {
+.rest-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #92400e;
-  color: #fef3c7;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 500;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
+
+  background-color: #92400e;
+  color: #fef3c7;
 }
 
-.rest-btn:hover {
+.rest-button:hover {
   background-color: #a16207;
+  transform: scale(1.05);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Dropdown Menu */
 .rest-dropdown {
   position: absolute;
   top: 100%;
@@ -35,14 +35,14 @@
   background-color: #451a03;
   border: 1px solid #92400e;
   border-radius: 0.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   overflow: hidden;
   min-width: 140px;
 }
 
-/* Rest Option Buttons */
-.rest-option {
+.dropdown-item {
   width: 100%;
   padding: 0.75rem 1rem;
   text-align: left;
@@ -54,20 +54,19 @@
   transition: background-color 0.15s ease-in-out;
 }
 
-.rest-option:hover {
+.dropdown-item:hover {
   background-color: #92400e;
 }
 
-.rest-option:not(:last-child) {
+.dropdown-item.long-rest {
   border-bottom: 1px solid #92400e;
 }
 
-/* Rest Option Text */
-.rest-option-title {
+.item-title {
   font-weight: 500;
 }
 
-.rest-option-duration {
+.item-subtitle {
   font-size: 0.75rem;
   color: #d97706;
   opacity: 0.8;

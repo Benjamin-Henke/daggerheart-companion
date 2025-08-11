@@ -10,7 +10,10 @@ import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
 import Hope from '../Stats/Hope'
 
-import { Flame, X } from "lucide-react";
+import Rest from './Actions/Rest'
+
+
+import { UserRoundPlus, X } from "lucide-react";
 
 const Players = () => {
   const [players, setPlayers] = useState<Player[]>([])
@@ -160,12 +163,13 @@ const Players = () => {
     <div className="player-stats">
       <div className="header">
         <h3>PLAYERS</h3>
-        <button>
-          <Flame className="w-4 h-4 text-orange-400" />
-        </button>
-        <button onClick={addPlayer} className="add-player-btn">
-          Add Player
-        </button>
+        <div className='header-actions'>
+          <Rest />
+          <button onClick={addPlayer} className="add-player-btn">
+            <UserRoundPlus className="w-4 h-4" />
+          </button>
+        </div>
+
       </div>
 
       <div className="players-container-scrollable">
