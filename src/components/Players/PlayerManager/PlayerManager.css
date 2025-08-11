@@ -113,8 +113,8 @@
 
 .delete-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: -5px;
+  right: -5px;
   background: #dc3545;
   color: white;
   border: none;
