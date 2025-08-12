@@ -3,7 +3,7 @@ import { supabase } from '../../supabaseClient'
 import { getFearStyles } from './colorUtils';
 
 import './FearTracker.css';
-import wwSkull from '../../assets/ww_skull.png'
+import wwSkull from '../../assets/ww-skull.png';
 
 import { RotateCcw } from 'lucide-react';
 
