@@ -3,7 +3,7 @@ import { supabase } from '../../supabaseClient'
 import './FearTracker.css';
 import wwSkull from '../../assets/ww_skull.png'
 
-import { Minus, Plus, RotateCcw } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 
 function FearTracker() {
   const [fear, setFear] = useState(0);
@@ -55,31 +55,42 @@ function FearTracker() {
     }
   };
 
-  const increaseFear = () => {
-    if (fear === 12) {
-      return;
-    }
-    const newFear = fear + 1;
-    setFear(newFear);
-    saveFear(newFear);
-  };
-
-  const decreaseFear = () => {
-    const newFear = Math.max(0, fear - 1);
-    setFear(newFear);
-    saveFear(newFear);
-  };
-
   const resetFear = () => {
     setFear(0);
     saveFear(0);
+  };
+
+  const handleSkullClick = async (index: number) => {
+    if (fear === 12 && index >= 12) return;
+
+    let newFear;
+    if (index + 1 === fear) {
+      newFear = fear - 1;
+    } else {
+      newFear = index + 1;
+    }
+
+    const previousFear = fear;
+
+    setFear(newFear);
+
+    try {
+      await saveFear(newFear);
+    } catch (error) {
+      setFear(previousFear);
+      console.error('Failed to save fear:', error);
+    }
   };
 
   const renderSkulls = () => {
     const skulls = [];
     for (let i = 0; i < 12; i++) {
       skulls.push(
-        <span key={i} className={`skull ${i < fear ? 'active' : 'inactive'}`}>
+        <span
+          key={i}
+          className={`skull ${i < fear ? 'active' : 'inactive'}`}
+          onClick={() => handleSkullClick(i)}
+        >
           <img src={wwSkull} alt="skull" />
         </span>
       );
@@ -107,22 +118,6 @@ function FearTracker() {
         <div className="fear-display">
           {fear >= 12 && <div className="max-fear-warning">MAX FEAR REACHED!</div>}
           <div className="skulls">{renderSkulls()}</div>
-        </div>
-        <div className="fear-controls">
-          <button
-            onClick={decreaseFear}
-            className="control-btn decrease"
-            disabled={fear === 0 || saving}
-          >
-            <Minus />
-          </button>
-          <button
-            onClick={increaseFear}
-            className="control-btn increase"
-            disabled={saving || fear >= 12}
-          >
-            <Plus />
-          </button>
         </div>
         <div className="reset-container">
           <button

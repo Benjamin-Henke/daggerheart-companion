@@ -128,13 +128,6 @@
   50% { opacity: 0.6; text-shadow: 0 0 10px #ef4444, 0 0 20px #b91c1c; }
 }
 
-.fear-controls {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
 .control-btn {
   background-color: #31408A;
   color: white;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Landing from './components/Landing';
-import FearTracker from './components/FearTracker/FearTracker';
+import FearTracker from './components/FearTracker';
 import PlayerManager from './components/Players/PlayerManager'
 import './App.css'
 
