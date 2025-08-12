@@ -1,4 +1,4 @@
-import { supabase } from '../../../../SupabaseClient'
+import { supabase } from '../../../../supabaseClient'
 import './Hope.css'
 import type { Player } from '../../../../types/Player'
 
@@ -29,8 +29,16 @@ const Hope = ({ player, onPlayerUpdate, onError }: HopeProps) => {
     }
   };
 
+  const getHopeCount = (current_hope?: number, max_hope?: number): number => {
+    if (!current_hope || current_hope <= 0) return 0;
+    if (!max_hope || max_hope <= 0) return 0;
+    return Math.min(current_hope, max_hope);
+  };
+  const hopeCount: number = getHopeCount(player.current_hope, player.max_hope) ?? 0;
+  const hopeClassName: string = `hope-banner ${hopeCount > 0 ? `hope-level-${hopeCount}` : ''}`;
+
   return (
-    <div className="hope-banner">
+    <div className={hopeClassName}>
       <span className="hope-label">Hope</span>
         {[...Array(6)].map((_, index) => (
           <div
