@@ -28,14 +28,16 @@ function interpolateRGBA (start: string, end: string, ratio: number): string {
 
 export function getFearStyles(fearRatio: number): React.CSSProperties & Record<string, string> {
   return {
-    '--border-color': interpolateRGBA('rgba(168, 85, 247, 0.5)', 'rgba(220, 38, 38, 0.7)', fearRatio),
-    '--box-shadow-color': interpolateRGBA('rgba(168, 85, 247, 0.3)', 'rgba(220, 38, 38, 0.5)', fearRatio),
-    '--box-shadow-inner-color': interpolateRGBA('rgba(168, 85, 247, 0.4)', 'rgba(220, 38, 38, 0.5)', fearRatio),
-    '--border-start': interpolateRGBA('rgba(168, 85, 247, 0.4)', 'rgba(220, 38, 38, 0.7)', fearRatio),
-    '--box-shadow-start': interpolateRGBA('rgba(168, 85, 247, 0.2)', 'rgba(220, 38, 38, 0.5)', fearRatio),
-    '--box-shadow-inner-start': interpolateRGBA('rgba(168, 85, 247, 0.3)', 'rgba(220, 38, 38, 0.5)', fearRatio),
-    '--border-end': interpolateRGBA('rgba(168, 85, 247, 0.4)', 'rgba(220, 38, 38, 0.7)', fearRatio),
-    '--box-shadow-end': interpolateRGBA('rgba(168, 85, 247, 0.2)', 'rgba(220, 38, 38, 0.5)', fearRatio),
-    '--box-shadow-inner-end': interpolateRGBA('rgba(168, 85, 247, 0.3)', 'rgba(220, 38, 38, 0.5)', fearRatio),
+    '--border-color': interpolateRGBA('rgba(115, 40, 230, 0.7)', 'rgba(255, 20, 20, 1)', fearRatio),
+    '--box-shadow-color': interpolateRGBA('rgba(90, 25, 200, 0.4)', 'rgba(255, 60, 60, 0.8)', fearRatio),
+    '--box-shadow-inner-color': interpolateRGBA('rgba(120, 50, 240, 0.5)', 'rgba(255, 80, 80, 0.7)', fearRatio),
+
+    '--border-start': interpolateRGBA('rgba(110, 45, 225, 0.6)', 'rgba(255, 30, 30, 1)', fearRatio),
+    '--box-shadow-start': interpolateRGBA('rgba(80, 20, 180, 0.4)', 'rgba(255, 90, 90, 0.7)', fearRatio),
+    '--box-shadow-inner-start': interpolateRGBA('rgba(130, 55, 250, 0.5)', 'rgba(255, 100, 100, 0.7)', fearRatio),
+
+    '--border-end': interpolateRGBA('rgba(115, 40, 230, 0.6)', 'rgba(255, 40, 40, 1)', fearRatio),
+    '--box-shadow-end': interpolateRGBA('rgba(80, 20, 180, 0.4)', 'rgba(255, 70, 70, 0.7)', fearRatio),
+    '--box-shadow-inner-end': interpolateRGBA('rgba(120, 50, 240, 0.5)', 'rgba(255, 90, 90, 0.7)', fearRatio),
   };
 }
