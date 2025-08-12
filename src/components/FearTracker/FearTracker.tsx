@@ -3,6 +3,8 @@ import { supabase } from '../../supabaseClient'
 import './FearTracker.css';
 import wwSkull from '../../assets/ww_skull.png'
 
+import { Minus, Plus, RotateCcw } from 'lucide-react';
+
 function FearTracker() {
   const [fear, setFear] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -112,18 +114,14 @@ function FearTracker() {
             className="control-btn decrease"
             disabled={fear === 0 || saving}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14"/>
-            </svg>
+            <Minus />
           </button>
           <button
             onClick={increaseFear}
             className="control-btn increase"
             disabled={saving || fear >= 12}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 5v14m-7-7h14"/>
-            </svg>
+            <Plus />
           </button>
         </div>
         <div className="reset-container">
@@ -132,13 +130,7 @@ function FearTracker() {
             className="reset-btn"
             disabled={saving}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-              <path d="M21 3v5h-5"/>
-              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-              <path d="M8 16H3v5"/>
-            </svg>
-            {saving ? 'Saving...' : 'Reset'}
+            <RotateCcw />
           </button>
         </div>
       </div>

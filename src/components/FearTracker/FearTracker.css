@@ -22,13 +22,35 @@
 }
 
 .fear-content {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  position: relative;
+  background-color: rgba(20, 10, 20, 0.75); /* Dark smoky purple-ish */
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(168, 85, 247, 0.5);
   border-radius: 0.75rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 0 15px 4px rgba(168, 85, 247, 0.3),
+    inset 0 0 20px 4px rgba(168, 85, 247, 0.4);
+
   padding: 2rem;
-  margin: 0 2rem 2rem 2rem; /* Add margin to match the players container */
+  margin: 0 2rem 2rem 2rem;
+
+  animation: flickerGlow 3s infinite ease-in-out alternate;
+}
+
+@keyframes flickerGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px 2px rgba(168, 85, 247, 0.2),
+      inset 0 0 15px 3px rgba(168, 85, 247, 0.3);
+    border-color: rgba(168, 85, 247, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 20px 6px rgba(220, 38, 38, 0.5), /* red tint flicker */
+      inset 0 0 30px 6px rgba(220, 38, 38, 0.5);
+    border-color: rgba(220, 38, 38, 0.7);
+  }
 }
 
 .fear-display {
@@ -75,16 +97,35 @@
           drop-shadow(0 0 24px rgba(220, 38, 38, 0.2));
 }
 
+.skull:hover img {
+  animation: skull-shake 0.3s ease-in-out infinite alternate,
+             skull-glow 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px crimson);
+}
+
+@keyframes skull-shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2px, 0) rotate(5deg); }
+}
+
+@keyframes skull-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px crimson); }
+  50% { filter: drop-shadow(0 0 25px crimson); }
+}
+
 .max-fear-warning {
   color: #ef4444;
   font-weight: bold;
-  font-size: 0.875rem;
-  animation: pulse 2s infinite;
-  position: absolute; /* Position it absolutely */
-  top: -1.5rem; /* Position it above the skulls */
-  left: 50%;
-  transform: translateX(-50%); /* Center it horizontally */
-  white-space: nowrap; /* Prevent text wrapping */
+  font-size: 1rem;
+  text-shadow:
+    0 0 10px #ef4444,
+    0 0 20px #b91c1c;
+  animation: pulse-flicker 2s infinite;
+}
+
+@keyframes pulse-flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 20px #ef4444, 0 0 40px #b91c1c; }
+  50% { opacity: 0.6; text-shadow: 0 0 10px #ef4444, 0 0 20px #b91c1c; }
 }
 
 .fear-controls {
@@ -185,9 +226,4 @@
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
 }
