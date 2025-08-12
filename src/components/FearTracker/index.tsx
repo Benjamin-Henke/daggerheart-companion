@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../supabaseClient'
+import { getFearStyles } from './colorUtils';
+
 import './FearTracker.css';
 import wwSkull from '../../assets/ww_skull.png'
 
@@ -109,24 +111,29 @@ function FearTracker() {
     );
   }
 
+  const fearRatio = fear / 12;
+  const styles = getFearStyles(fearRatio);
+
   return (
     <div className="fear-tracker">
       <div className="fear-header">
         <h1 className="fear-title">FEAR</h1>
+        <button
+          onClick={resetFear}
+          className="reset-btn"
+          disabled={saving}
+        >
+          <RotateCcw />
+        </button>
       </div>
-      <div className="fear-content">
+      <div className="fear-content" style={styles}>
         <div className="fear-display">
           {fear >= 12 && <div className="max-fear-warning">MAX FEAR REACHED!</div>}
-          <div className="skulls">{renderSkulls()}</div>
-        </div>
-        <div className="reset-container">
-          <button
-            onClick={resetFear}
-            className="reset-btn"
-            disabled={saving}
+          <div
+            className="skulls"
           >
-            <RotateCcw />
-          </button>
+              {renderSkulls()}
+            </div>
         </div>
       </div>
     </div>
