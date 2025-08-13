@@ -1,12 +1,12 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
-import Landing from './components/Landing';
+// import Landing from './components/Landing';
 import FearTracker from './components/FearTracker';
 import PlayerManager from './components/Players/PlayerManager'
 import './App.css'
 
 function App() {
-  const [selectedCampaign, setSelectedCampaign] = useState<number | null>(null)
+  // const [selectedCampaign, setSelectedCampaign] = useState<number | null>(null)
 
   // ADD in later
   // if (!selectedCampaign) {

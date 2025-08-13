@@ -28,8 +28,8 @@
   border: 2px solid rgba(168, 85, 247, 0.5);
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .stress-slot.filled {
@@ -47,4 +47,102 @@
 .stress-slot:hover {
   transform: scale(1.1);
   opacity: 1;
+}
+
+/* Progressive stress colors based on percentage filled */
+/* 0-20% stress - Cool blue/teal (calm) */
+.stress-slot.filled.stress-0-20 {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  border-color: #0e7490;
+  box-shadow: 0 2px 4px rgba(6, 182, 212, 0.3);
+}
+
+/* 21-40% stress - Blue/purple (mild concern) */
+.stress-slot.filled.stress-21-40 {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  border-color: #4f46e5;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+/* 41-60% stress - Purple (building tension) */
+.stress-slot.filled.stress-41-60 {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  border-color: #7c3aed;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+}
+
+/* 61-80% stress - Orange/red (high stress) */
+.stress-slot.filled.stress-61-80 {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-color: #c2410c;
+  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.4);
+  animation: stress-pulse-warning 4s ease-in-out infinite;
+}
+
+/* 81-99% stress - Red (critical stress) */
+.stress-slot.filled.stress-81-99 {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border-color: #991b1b;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.5),
+              0 0 8px rgba(220, 38, 38, 0.3);
+  animation: stress-pulse-critical 3s ease-in-out infinite;
+}
+
+/* 100% stress - Danger red with warning (overflow state) */
+.stress-slot.filled.stress-100 {
+  background: linear-gradient(135deg, #991b1b, #7f1d1d);
+  border: 2px solid #fbbf24;
+  box-shadow: 0 2px 4px rgba(153, 27, 27, 0.6),
+              0 0 12px rgba(251, 191, 36, 0.4),
+              0 0 20px rgba(239, 68, 68, 0.3);
+  animation: stress-overflow-warning 2s ease-in-out infinite;
+}
+
+/* Stress warning animations */
+@keyframes stress-pulse-warning {
+  0%, 100% {
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.6),
+                0 0 8px rgba(249, 115, 22, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes stress-pulse-critical {
+  0%, 100% {
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.5),
+                0 0 8px rgba(220, 38, 38, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.7),
+                0 0 12px rgba(220, 38, 38, 0.5);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes stress-overflow-warning {
+  0%, 100% {
+    box-shadow: 0 2px 4px rgba(153, 27, 27, 0.6),
+                0 0 12px rgba(251, 191, 36, 0.4),
+                0 0 20px rgba(239, 68, 68, 0.3);
+    border-color: #fbbf24;
+  }
+  50% {
+    box-shadow: 0 2px 4px rgba(153, 27, 27, 0.8),
+                0 0 16px rgba(251, 191, 36, 0.6),
+                0 0 25px rgba(239, 68, 68, 0.5);
+    border-color: #f59e0b;
+  }
+}
+
+/* Special effect when hovering over high-stress slots */
+.stress-slot.filled.stress-61-80:hover,
+.stress-slot.filled.stress-81-99:hover,
+.stress-slot.filled.stress-100:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
 }

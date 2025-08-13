@@ -82,18 +82,27 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
     }
   };
 
+  const getStressClass = (slotIndex: number, player: Player) => {
+    const stressPercentage = (player.current_stress / player.max_stress) * 100;
+
+    if (slotIndex >= player.current_stress) return 'empty';
+    if (stressPercentage <= 20) return 'filled stress-0-20';
+    if (stressPercentage <= 40) return 'filled stress-21-40';
+    if (stressPercentage <= 60) return 'filled stress-41-60';
+    if (stressPercentage <= 80) return 'filled stress-61-80';
+    if (stressPercentage < 100) return 'filled stress-81-99';
+    return 'filled stress-100';
+  };
+
+
   const renderStressSlots = (player: Player) => {
-    const slots = [];
-    for (let i = 0; i < player.max_stress; i++) {
-      slots.push(
-        <div
-          key={i}
-          className={`stress-slot ${i < player.current_stress ? 'filled' : 'empty'}`}
-          onClick={() => toggleStressSlot(player.id, i)}
-        />
-      );
-    }
-    return slots;
+    return Array.from({ length: player.max_stress }, (_, index) => (
+      <div
+        key={index}
+        className={`stress-slot ${getStressClass(index, player)}`}
+        onClick={() => toggleStressSlot(player.id, index)}
+      />
+    ));
   };
 
   return (
