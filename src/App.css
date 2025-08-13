@@ -41,7 +41,7 @@
   }
 }
 
-@media (max-width: 2000px) {
+@media (max-width: 1800px) {
   /* Align both headers at the same height */
   .header,
   .fear-header {

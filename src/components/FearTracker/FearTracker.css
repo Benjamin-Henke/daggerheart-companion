@@ -104,7 +104,7 @@
 
 @keyframes skull-shake {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(2px, 0) rotate(5deg); }
+  100% { transform: translate(5px, 0) rotate(6deg); }
 }
 
 @keyframes skull-glow {

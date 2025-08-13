@@ -5,12 +5,12 @@ import { getFearStyles } from './colorUtils';
 import './FearTracker.css';
 import wwSkull from '../../assets/ww-skull.png';
 
-import { RotateCcw } from 'lucide-react';
+// import { RotateCcw } from 'lucide-react';
 
 function FearTracker() {
   const [fear, setFear] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
+  // const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     loadFear();
@@ -37,7 +37,7 @@ function FearTracker() {
   };
 
   const saveFear = async (newFear: number) => {
-    setSaving(true);
+    // setSaving(true);
     try {
       const { error } = await supabase
         .from('fear_tracker')
@@ -52,15 +52,13 @@ function FearTracker() {
       }
     } catch (error) {
       console.error('Error saving fear:', error);
-    } finally {
-      setSaving(false);
-    }
+    };
   };
 
-  const resetFear = () => {
-    setFear(0);
-    saveFear(0);
-  };
+  // const resetFear = () => {
+  //   setFear(0);
+  //   saveFear(0);
+  // };
 
   const handleSkullClick = async (index: number) => {
     if (fear === 12 && index >= 12) return;
@@ -118,13 +116,13 @@ function FearTracker() {
     <div className="fear-tracker">
       <div className="fear-header">
         <h1 className="fear-title">FEAR</h1>
-        <button
+        {/*<button
           onClick={resetFear}
           className="reset-btn"
           disabled={saving}
         >
           <RotateCcw />
-        </button>
+        </button>*/}
       </div>
       <div className="fear-content" style={styles}>
         <div className="fear-display">
