@@ -28,16 +28,18 @@ function interpolateRGBA (start: string, end: string, ratio: number): string {
 
 export function getFearStyles(fearRatio: number): React.CSSProperties & Record<string, string> {
   return {
-    '--border-color': interpolateRGBA('rgba(115, 40, 230, 0.7)', 'rgba(255, 20, 20, 1)', fearRatio),
-    '--box-shadow-color': interpolateRGBA('rgba(90, 25, 200, 0.4)', 'rgba(255, 60, 60, 0.8)', fearRatio),
-    '--box-shadow-inner-color': interpolateRGBA('rgba(120, 50, 240, 0.5)', 'rgba(255, 80, 80, 0.7)', fearRatio),
+    '--border-color': interpolateRGBA('rgba(139, 0, 0, 0.6)', 'rgba(255, 20, 20, 1)', fearRatio), // darkred → bright red
+    '--box-shadow-color': interpolateRGBA('rgba(178, 34, 34, 0.4)', 'rgba(255, 60, 60, 0.85)', fearRatio), // firebrick → red
+    '--box-shadow-inner-color': interpolateRGBA('rgba(139, 0, 0, 0.5)', 'rgba(255, 80, 80, 0.75)', fearRatio), // darkred → light red
 
-    '--border-start': interpolateRGBA('rgba(110, 45, 225, 0.6)', 'rgba(255, 30, 30, 1)', fearRatio),
-    '--box-shadow-start': interpolateRGBA('rgba(80, 20, 180, 0.4)', 'rgba(255, 90, 90, 0.7)', fearRatio),
-    '--box-shadow-inner-start': interpolateRGBA('rgba(130, 55, 250, 0.5)', 'rgba(255, 100, 100, 0.7)', fearRatio),
+    // Pulse start colors
+    '--border-start': interpolateRGBA('rgba(165, 42, 42, 0.6)', 'rgba(255, 30, 30, 1)', fearRatio), // brownish red → bright red
+    '--box-shadow-start': interpolateRGBA('rgba(139, 0, 0, 0.4)', 'rgba(255, 90, 90, 0.75)', fearRatio),
+    '--box-shadow-inner-start': interpolateRGBA('rgba(178, 34, 34, 0.5)', 'rgba(255, 100, 100, 0.75)', fearRatio),
 
-    '--border-end': interpolateRGBA('rgba(115, 40, 230, 0.6)', 'rgba(255, 40, 40, 1)', fearRatio),
-    '--box-shadow-end': interpolateRGBA('rgba(80, 20, 180, 0.4)', 'rgba(255, 70, 70, 0.7)', fearRatio),
-    '--box-shadow-inner-end': interpolateRGBA('rgba(120, 50, 240, 0.5)', 'rgba(255, 90, 90, 0.7)', fearRatio),
+    // Pulse peak colors
+    '--border-end': interpolateRGBA('rgba(165, 42, 42, 0.6)', 'rgba(255, 50, 50, 1)', fearRatio),
+    '--box-shadow-end': interpolateRGBA('rgba(139, 0, 0, 0.45)', 'rgba(255, 70, 70, 0.8)', fearRatio),
+    '--box-shadow-inner-end': interpolateRGBA('rgba(178, 34, 34, 0.5)', 'rgba(255, 90, 90, 0.8)', fearRatio),
   };
 }

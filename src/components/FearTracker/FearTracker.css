@@ -41,15 +41,15 @@
 @keyframes flickerGlow {
   0%, 100% {
     box-shadow:
-      0 0 10px 2px var(--box-shadow-start, rgba(168, 85, 247, 0.2)),
-      inset 0 0 15px 3px var(--box-shadow-inner-start, rgba(168, 85, 247, 0.3));
-    border-color: var(--border-start, rgba(168, 85, 247, 0.4));
+      0 0 10px 2px var(--box-shadow-start, rgba(139, 0, 0, 0.3)),
+      inset 0 0 15px 3px var(--box-shadow-inner-start, rgba(178, 34, 34, 0.4));
+    border-color: var(--border-start, rgba(178, 34, 34, 0.6));
   }
   50% {
     box-shadow:
-      0 0 20px 6px var(--box-shadow-end, rgba(220, 38, 38, 0.5)),
-      inset 0 0 30px 6px var(--box-shadow-inner-end, rgba(220, 38, 38, 0.5));
-    border-color: var(--border-end, rgba(220, 38, 38, 0.7));
+      0 0 20px 6px var(--box-shadow-end, rgba(220, 20, 60, 0.6)),
+      inset 0 0 30px 6px var(--box-shadow-inner-end, rgba(255, 69, 0, 0.6));
+    border-color: var(--border-end, rgba(255, 69, 0, 0.8));
   }
 }
 
