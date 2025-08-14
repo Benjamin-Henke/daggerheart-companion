@@ -126,7 +126,7 @@ function FearTracker() {
       </div>
       <div className="fear-content" style={styles}>
         <div className="fear-display">
-          {fear >= 12 && <div className="max-fear-warning">MAX FEAR REACHED!</div>}
+          {/*{fear >= 12 && <div className="max-fear-warning">MAX FEAR REACHED!</div>}*/}
           <div
             className="skulls"
           >

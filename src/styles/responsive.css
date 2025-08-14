@@ -1,0 +1,123 @@
+/* =========================
+   LARGE SCREENS (<= var(--bp-large))
+   ========================= */
+@media (max-width: var(--bp-large)) {
+  /* Dashboard layout tweaks */
+  .dashboard > *:first-child {
+    flex: 0 0 260px;
+    max-width: 280px;
+  }
+
+  .dashboard > *:nth-child(2) {
+    min-width: 450px;
+  }
+
+  /* Reduce padding */
+  .header,
+  .fear-header {
+    padding: var(--space-md) var(--space-md) 0 var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .player-stats,
+  .fear-tracker {
+    padding: 0;
+  }
+
+  .fear-content {
+    margin: var(--space-xs) var(--space-md) var(--space-md) var(--space-md);
+  }
+
+  .players-container-scrollable {
+    padding: var(--space-xs) var(--space-md) var(--space-md) var(--space-md);
+  }
+
+  .players-container {
+    padding: var(--space-xxs); /* Keep 2 columns here */
+  }
+}
+
+/* =========================
+   TABLETS & BELOW (<= var(--bp-tablet))
+   ========================= */
+@media (max-width: 1200px)) {
+  /* Stack dashboard vertically */
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .dashboard > *:first-child,
+  .dashboard > *:nth-child(2) {
+    width: 100%;
+    max-width: 600px;
+    flex: none;
+    align-self: auto;
+  }
+  /* PlayerManager: force single column grid */
+  .players-container {
+    grid-template-columns: 1fr !important;
+  }
+  /* FearTracker: make it go horizontal single-row */
+  .skulls {
+    grid-template-columns: repeat(12, 1fr) !important;
+  }
+  .fear-content .skulls .skull img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+/* =========================
+   SMALL SCREENS (<= var(--bp-mobile))
+   ========================= */
+@media (max-width: var(--bp-mobile)) {
+  /* Header adjusts */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .header h3 {
+    font-size: 1.5rem;
+  }
+
+  .add-player-btn {
+    padding: 0.4rem var(--space-md);
+    font-size: 0.75rem;
+  }
+
+  /* FearTracker adjustments */
+  .fear-tracker {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .fear-content {
+    padding: var(--space-sm);
+    margin: 0 var(--space-xs) var(--space-xs) var(--space-xs);
+  }
+
+  /* Skulls: single row of 12, smaller size */
+  .fear-tracker .skulls {
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 0.15rem !important;
+    padding: 0.25rem !important;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .fear-tracker .skull img {
+    width: var(--skull-size-sm) !important;
+    height: var(--skull-size-sm) !important;
+  }
+
+  .skull img {
+    width: var(--skull-size-sm);
+    height: var(--skull-size-sm);
+  }
+}

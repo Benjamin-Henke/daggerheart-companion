@@ -38,20 +38,6 @@
   animation: flickerGlow 3s infinite ease-in-out alternate;
 }
 
-@keyframes flickerGlow {
-  0%, 100% {
-    box-shadow:
-      0 0 10px 2px var(--box-shadow-start, rgba(139, 0, 0, 0.3)),
-      inset 0 0 15px 3px var(--box-shadow-inner-start, rgba(178, 34, 34, 0.4));
-    border-color: var(--border-start, rgba(178, 34, 34, 0.6));
-  }
-  50% {
-    box-shadow:
-      0 0 20px 6px var(--box-shadow-end, rgba(220, 20, 60, 0.6)),
-      inset 0 0 30px 6px var(--box-shadow-inner-end, rgba(255, 69, 0, 0.6));
-    border-color: var(--border-end, rgba(255, 69, 0, 0.8));
-  }
-}
 
 .fear-display {
   text-align: center;
@@ -67,7 +53,7 @@
   align-items: center;
   justify-items: center;
   padding: 0.75rem;
-  margin-top: 2rem; /* Add space for the warning text */
+  /*margin-top: 2rem; /* Add space for the warning text */*/
 }
 
 .skull {
@@ -102,16 +88,6 @@
   filter: drop-shadow(0 0 12px crimson);
 }
 
-@keyframes skull-shake {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(5px, 0) rotate(6deg); }
-}
-
-@keyframes skull-glow {
-  0%, 100% { filter: drop-shadow(0 0 10px crimson); }
-  50% { filter: drop-shadow(0 0 25px crimson); }
-}
-
 .max-fear-warning {
   color: #ef4444;
   font-weight: bold;
@@ -122,12 +98,7 @@
   animation: pulse-flicker 2s infinite;
 }
 
-@keyframes pulse-flicker {
-  0%, 100% { opacity: 1; text-shadow: 0 0 20px #ef4444, 0 0 40px #b91c1c; }
-  50% { opacity: 0.6; text-shadow: 0 0 10px #ef4444, 0 0 20px #b91c1c; }
-}
-
-.reset-btn {
+/* .reset-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,7 +125,7 @@
 .reset-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
+}*/
 
 .instructions {
   margin-top: 2rem;
@@ -188,6 +159,36 @@
 .spinner {
   animation: spin 1s linear infinite;
   font-size: 2rem;
+}
+
+@keyframes skull-shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(5px, 0) rotate(6deg); }
+}
+
+@keyframes skull-glow {
+  0%, 100% { filter: drop-shadow(0 0 10px crimson); }
+  50% { filter: drop-shadow(0 0 25px crimson); }
+}
+
+@keyframes pulse-flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 20px #ef4444, 0 0 40px #b91c1c; }
+  50% { opacity: 0.6; text-shadow: 0 0 10px #ef4444, 0 0 20px #b91c1c; }
+}
+
+@keyframes flickerGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px 2px var(--box-shadow-start, rgba(139, 0, 0, 0.3)),
+      inset 0 0 15px 3px var(--box-shadow-inner-start, rgba(178, 34, 34, 0.4));
+    border-color: var(--border-start, rgba(178, 34, 34, 0.6));
+  }
+  50% {
+    box-shadow:
+      0 0 20px 6px var(--box-shadow-end, rgba(220, 20, 60, 0.6)),
+      inset 0 0 30px 6px var(--box-shadow-inner-end, rgba(255, 69, 0, 0.6));
+    border-color: var(--border-end, rgba(255, 69, 0, 0.8));
+  }
 }
 
 @keyframes spin {
