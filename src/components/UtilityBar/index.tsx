@@ -10,10 +10,10 @@ interface UtilityBarProps {
 
 const UtilityBar = ({ onPlayerAdded, onError }: UtilityBarProps) => {
   return (
-    <nav className="navbar">
-      <div className="navbar-content">
-        <h1 className="navbar-title">Daggerheart Companion</h1>
-        <div className="navbar-actions">
+    <nav className="utility-bar">
+      <div className="utility-bar-content">
+        {/*<h1 className="utility-bar-title">DAGGERHEART COMPANION</h1>*/}
+        <div className="utility-bar-actions">
           <Rest />
           <AddPlayer onPlayerAdded={onPlayerAdded} onError={onError} />
         </div>

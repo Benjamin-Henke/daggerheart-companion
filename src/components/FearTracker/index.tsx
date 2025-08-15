@@ -115,7 +115,7 @@ function FearTracker() {
   return (
     <div className="fear-tracker">
       <div className="fear-header">
-        <h1 className="fear-title">FEAR</h1>
+        {/*<h1 className="fear-title">FEAR</h1>*/}
         {/*<button
           onClick={resetFear}
           className="reset-btn"

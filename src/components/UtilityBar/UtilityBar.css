@@ -1,28 +1,29 @@
-css.navbar {
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.3);
+.utility-bar {
+  /*background: rgba(0, 0, 0, 0.8);*/
+  /*backdrop-filter: blur(12px);*/
+  /*border-bottom: 1px solid rgba(168, 85, 247, 0.3);*/
   padding: 1rem 2rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
-.navbar-content {
+.utility-bar-content {
   display: flex;
-  justify-content: space-between; /* Changed from flex-start to space-between */
+  justify-content: flex-end;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
-.navbar-actions {
+.utility-bar-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
 }
 
-.navbar-title {
-  color: #c084fc;
+.utility-bar-title {
+  color: #ffffff;
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0;

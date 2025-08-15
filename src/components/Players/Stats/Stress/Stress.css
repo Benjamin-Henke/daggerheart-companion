@@ -11,7 +11,7 @@
 
 .stress-label {
   font-weight: bold;
-  color: #c084fc;
+  color: #83CDC2;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
 }
@@ -25,7 +25,7 @@
 .stress-slot {
   width: 32px;
   height: 20px;
-  border: 2px solid rgba(168, 85, 247, 0.5);
+  border: 2px solid #fdf691;
   border-radius: 0.5rem;
   cursor: pointer;
   position: relative;
@@ -33,15 +33,15 @@
 }
 
 .stress-slot.filled {
-  background-color: #8b5cf6;
+  background-color: #fdf691;
   border-color: #7c3aed;
   opacity: 1;
 }
 
 .stress-slot.empty {
   background-color: rgba(0, 0, 0, 0.3);
-  border-color: rgba(168, 85, 247, 0.5);
-  opacity: 0.6;
+  border-color: #fdf691;
+  opacity: 0.8;
 }
 
 .stress-slot:hover {
