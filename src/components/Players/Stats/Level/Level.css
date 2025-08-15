@@ -5,25 +5,25 @@
   justify-content: center;
   height: auto;
   background: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(168, 85, 247, 0.5);
-  border-radius: 0.75rem;
+  border: 2px solid  #E7C74B;
+  border-radius: 0.50rem;
   padding: 0.4rem;
   align-self: stretch;
 
-  padding-bottom: 1rem; /* Add extra top padding for the banner */
-  position: relative; /* Enable absolute positioning for the label */
-  margin-bottom: 0.5rem; /* Add space for the banner to pop out */
+  /*padding-bottom: 1rem;*/
+  position: relative;
+  /*margin-bottom: 0.5rem;*/
 }
 
 .level-input {
   background: transparent;
   border: none;
-  color: #c084fc;
+  color: #FFFFFF;
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   width: 100%;
-  max-width: 60px;
+  /*max-width: 60px;*/
 }
 
 .level-input:focus {
@@ -45,24 +45,13 @@
   bottom: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
-
   font-size: 0.6rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
-
-  background: linear-gradient(135deg, rgba(168, 85, 247, 1), rgba(139, 92, 246, 1));
+  background: #E7C74B;
   padding: 0.1rem 0.2rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(168, 85, 247, 0.8);
-
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
-
+  border-radius: 0.25rem;
+  border: 2px solid 0cqh #FDF691;
   transition: all 0.3s ease;
-}
-
-/* Optional hover effect */
-.level-box:hover .level-label {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
 }

@@ -1,33 +1,30 @@
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #111827 0%, #452248 50%, #000000 100%);
+  background: linear-gradient(135deg, #1A162F 0%, #22125F 50%, #1A162F 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /*align-items: center;
+  justify-content: center;*/
   padding: 1rem;
 }
 
 .dashboard {
-  display: flex;
-  gap: 1.5rem; /* Reduced gap */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
   width: 100%;
   max-width: 2000px;
-  align-items: flex-start;
 }
 
 .dashboard > *:first-child {
-  flex: 0 0 auto; /* Don't grow, just fit content */
-  /*min-width: 250px; /* Reduced minimum */*/
-  max-width: 300px; /* Reduced maximum */
+  max-width: 300px;
 }
 
 .dashboard > *:nth-child(2) {
-  flex: 1; /* Take remaining space */
+  flex: 1;
   min-width: 600px;
 }
 
 @media (max-width: 1550px) {
-  /* Align both headers at the same height */
   .header,
   .fear-header {
     padding: 1rem 1rem 0 1rem;

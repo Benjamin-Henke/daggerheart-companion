@@ -5,6 +5,8 @@ import './Damage.css'
 
 import type { Player } from '../../../types/Player'
 
+import CharacterInfoBox from './CharacterInfo';
+
 import Hp from '../Stats/HP'
 import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
@@ -195,39 +197,23 @@ const Players = () => {
                     updatePlayerField={updatePlayerField}
                   />
 
-                  <div className="character-box">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      value={player.name}
-                      onChange={(e) => updatePlayerField(player.id, 'name', e.target.value)}
-                      className="player-input"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Heritage"
-                      value={player.heritage}
-                      onChange={(e) => updatePlayerField(player.id, 'heritage', e.target.value)}
-                      className="heritage-input"
-                    />
-                  </div>
+                  <CharacterInfoBox
+                    mainValue={player.name}
+                    secondaryValue={player.heritage}
+                    mainPlaceholder="Name"
+                    secondaryPlaceholder="Heritage"
+                    onMainChange={(value) => updatePlayerField(player.id, 'name', value)}
+                    onSecondaryChange={(value) => updatePlayerField(player.id, 'heritage', value)}
+                  />
 
-                  <div className="class-box">
-                    <input
-                      type="text"
-                      placeholder="Class"
-                      value={player.class}
-                      onChange={(e) => updatePlayerField(player.id, 'class', e.target.value)}
-                      className="class-input"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Subclass"
-                      value={player.subclass}
-                      onChange={(e) => updatePlayerField(player.id, 'subclass', e.target.value)}
-                      className="subclass-input"
-                    />
-                  </div>
+                  <CharacterInfoBox
+                    mainValue={player.class}
+                    secondaryValue={player.subclass}
+                    mainPlaceholder="Class"
+                    secondaryPlaceholder="Subclass"
+                    onMainChange={(value) => updatePlayerField(player.id, 'class', value)}
+                    onSecondaryChange={(value) => updatePlayerField(player.id, 'subclass', value)}
+                  />
                 </div>
               </div>
 
