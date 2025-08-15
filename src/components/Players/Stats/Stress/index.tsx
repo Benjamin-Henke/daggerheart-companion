@@ -108,7 +108,7 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
   return (
     <div className="stress-section">
       <div className="stress-header">
-        <span className="stress-label">Stress ({player.current_stress}/{player.max_stress})</span>
+        <span className="stress-label">STRESS ({player.current_stress}/{player.max_stress})</span>
 
         <div className="slot-buttons">
           <button
@@ -116,14 +116,14 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
             className="slot-btn"
             title="Add Stress slot"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-3 h-3" />
           </button>
           <button
             onClick={() => removeStressSlot(player.id)}
             className="slot-btn"
             title="Remove Stress slot"
           >
-            <Minus className="w-4 h-4" />
+            <Minus className="w-3 h-3" />
           </button>
         </div>
       </div>
