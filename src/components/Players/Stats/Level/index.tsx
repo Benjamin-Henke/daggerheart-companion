@@ -19,7 +19,7 @@ const Levels = ({ player, updatePlayerField }: LevelProps) => {
         onChange={(e) => updatePlayerField(player.id, 'level', parseInt(e.target.value))}
         className="level-input"
       />
-      <div className="level-label">Level</div>
+      <div className="level-label">LEVEL</div>
     </div>
   );
 };

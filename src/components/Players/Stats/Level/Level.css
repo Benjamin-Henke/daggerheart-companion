@@ -9,6 +9,7 @@
   border-radius: 0.50rem;
   padding: 0.4rem;
   align-self: stretch;
+  width: 4rem;
 
   /*padding-bottom: 1rem;*/
   position: relative;
@@ -23,7 +24,6 @@
   font-weight: bold;
   text-align: center;
   width: 100%;
-  /*max-width: 60px;*/
 }
 
 .level-input:focus {

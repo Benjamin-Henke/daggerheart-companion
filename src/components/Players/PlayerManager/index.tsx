@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '../../../supabaseClient';
 import './PlayerManager.css'
 import './Damage.css'
@@ -12,31 +12,27 @@ import Level from '../Stats/Level'
 import Stress from '../Stats/Stress'
 import Hope from '../Stats/Hope'
 
-import Rest from './Actions/Rest'
 
+import { X } from "lucide-react";
 
-import { UserRoundPlus, X } from "lucide-react";
+interface PlayerManagerProps {
+  players: Player[];
+  setPlayers: React.Dispatch<React.SetStateAction<Player[]>>;
+}
 
-const Players = () => {
-  const [players, setPlayers] = useState<Player[]>([])
+const Players = ({ players, setPlayers }: PlayerManagerProps) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const saveTimeout = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    loadPlayers();
-  }, []);
-
-  const loadPlayers = async () => {
+  const loadPlayers = useCallback(async () => {
     try {
       setLoading(true);
       const { data, error } = await supabase
         .from('players')
         .select('*')
         .order('created_at', { ascending: true });
-
       if (error) throw error;
-
       setPlayers(data || []);
     } catch (error) {
       console.error('Error loading players:', error);
@@ -48,44 +44,11 @@ const Players = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [setPlayers]);
 
-  const addPlayer = async () => {
-    try {
-      const newPlayer = {
-        name: '',
-        class: '',
-        heritage: '',
-        subclass: '',
-        level: 1,
-        agility: 0,
-        current_hp: 0,
-        max_hp: 6,
-        current_armor: 0,
-        max_armor: 12,
-        current_stress: 0,
-        max_stress: 6,
-        current_hope: 0,
-        max_hope: 6
-      };
-
-      const { data, error } = await supabase
-        .from('players')
-        .insert([newPlayer])
-        .select();
-
-      if (error) throw error;
-
-      setPlayers([...players, data[0]]);
-    } catch (error) {
-      console.error('Error adding player: ', error);
-      if (error instanceof Error) {
-        setError(error.message)
-      } else {
-        setError(String(error))
-      }
-    }
-  };
+  useEffect(() => {
+    loadPlayers();
+  }, [loadPlayers]);
 
   const updatePlayerField = (id: number, field: keyof Player, value: string | number) => {
     setPlayers(prevPlayers =>
@@ -163,16 +126,9 @@ const Players = () => {
 
   return (
     <div className="player-stats">
-      <div className="header">
+      {/*<div className="header">
         <h3>PLAYERS</h3>
-        <div className='header-actions'>
-          <Rest />
-          <button onClick={addPlayer} className="add-player-btn">
-            <UserRoundPlus className="w-4 h-4" />
-          </button>
-        </div>
-
-      </div>
+      </div>*/}
 
       <div className="players-container-scrollable">
         <div className="players-container">
