@@ -112,18 +112,18 @@ const Stress = ({ player, onPlayerUpdate, onError }: StressProps) => {
 
         <div className="slot-buttons">
           <button
-            onClick={() => addStressSlot(player.id)}
-            className="slot-btn"
-            title="Add Stress slot"
-          >
-            <Plus className="w-3 h-3" />
-          </button>
-          <button
             onClick={() => removeStressSlot(player.id)}
             className="slot-btn"
             title="Remove Stress slot"
           >
             <Minus className="w-3 h-3" />
+          </button>
+          <button
+            onClick={() => addStressSlot(player.id)}
+            className="slot-btn"
+            title="Add Stress slot"
+          >
+            <Plus className="w-3 h-3" />
           </button>
         </div>
       </div>

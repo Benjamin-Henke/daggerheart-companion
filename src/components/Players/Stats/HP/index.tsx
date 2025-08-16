@@ -102,18 +102,18 @@ const HP = ({ player, onPlayerUpdate, onError }: HpProps) => {
         <span className="hp-label">HP ({player.current_hp}/{player.max_hp})</span>
         <div className="slot-buttons">
           <button
-            onClick={() => addHpSlot(player.id)}
-            className="slot-btn"
-            title="Add HP slot"
-          >
-            <Plus className="w-4 h-4" />
-          </button>
-          <button
             onClick={() => removeHpSlot(player.id)}
             className="slot-btn"
             title="Remove HP slot"
           >
             <Minus className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => addHpSlot(player.id)}
+            className="slot-btn"
+            title="Add HP slot"
+          >
+            <Plus className="w-4 h-4" />
           </button>
         </div>
       </div>

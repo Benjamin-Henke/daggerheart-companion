@@ -18,6 +18,8 @@
   color: #FFFFFF;
   text-align: center;
   transition: all 0.2s ease;
+  width: 80%; /* Reduce width */
+  margin: 0 auto; /* Center horizontally */
 }
 
 .secondary-input {
@@ -30,6 +32,8 @@
   text-align: center;
   transition: all 0.2s ease;
   opacity: 0.8;
+  width: 80%; /* Reduce width */
+  margin: 0 auto; /* Center horizontally */
 }
 
 .main-input::placeholder,

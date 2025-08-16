@@ -26,9 +26,9 @@
   position: relative;
   background-color: rgba(20, 10, 20, 0.75);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color, rgba(168, 85, 247, 0.5));
+  border: 2px solid darkred;
   border-radius: 0.75rem;
-  box-shadow: inset 0 0 20px 4px var(--box-shadow-inner-color, rgba(168, 85, 247, 0.4));
+  /*box-shadow: inset 0 0 20px 4px var(--box-shadow-inner-color, rgba(168, 85, 247, 0.4));*/
   padding: 1rem;
   margin: 0 1rem 1rem 1rem; /* Much smaller margins */
   animation: flickerGlow 3s infinite ease-in-out alternate;
@@ -44,12 +44,12 @@
 
 .skulls {
   display: grid;
-  grid-template-columns: 1fr; /* Single column */
-  gap: 0.3rem; /* Tighter gap for vertical stack */
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
   align-items: center;
   justify-items: center;
-  padding: 0.5rem; /* Reduced padding */
-  margin-top: 1rem; /* Reduced margin */
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
 
 .skull {
@@ -79,9 +79,8 @@
 }*/
 
 .skull:hover img {
-  animation: skull-shake 0.3s ease-in-out infinite alternate,
-             skull-glow 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px crimson);
+  animation: skull-shake 0.3s ease-in-out infinite alternate;
+  /*filter: drop-shadow(0 0 12px crimson);*/
 }
 
 .fear-tracker-loading {
@@ -97,6 +96,23 @@
   align-items: center;
   justify-content: center;
 }
+
+.fear-label {
+  position: absolute;
+  top: -1rem; /* Moved up a bit more to accommodate larger size */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem; /* Increased from 0.6rem */
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  background: darkred;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  border: 2px solid red;
+  transition: all 0.3s ease;
+}
+
 
 .loading-content {
   color: #c084fc;
@@ -114,11 +130,6 @@
 @keyframes skull-shake {
   0% { transform: translate(0, 0) rotate(0deg); }
   100% { transform: translate(5px, 0) rotate(6deg); }
-}
-
-@keyframes skull-glow {
-  0%, 100% { filter: drop-shadow(0 0 10px crimson); }
-  50% { filter: drop-shadow(0 0 25px crimson); }
 }
 
 @keyframes pulse-flicker {

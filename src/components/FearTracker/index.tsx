@@ -133,6 +133,7 @@ function FearTracker() {
               {renderSkulls()}
             </div>
         </div>
+        <div className='fear-label'>FEAR</div>
       </div>
     </div>
   );

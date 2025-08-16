@@ -14,8 +14,9 @@ New hope colors
   transform: translateX(-50%);
   background: linear-gradient(135deg, #06808D, #3DA59B);
   border: 2px solid rgba(61, 165, 155, 0.8);
+  /*border: 2px solid #E7C74B;*/
   border-radius: 1rem;
-  padding:0.2rem 1rem;
+  padding: 0.25rem 1.25rem;
   box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.4);
   z-index: 5;
   backdrop-filter: blur(8px);
@@ -23,12 +24,12 @@ New hope colors
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .hope-diamond {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: transparent;
   border: 2px solid #5DBDB3;
   transform: rotate(45deg);
@@ -43,7 +44,7 @@ New hope colors
 
 .hope-diamond:hover {
   transform: rotate(45deg) scale(1.1);
-  border-color: #F2B441;
+  border-color: #fdf691;
 }
 
 .hope-label {
